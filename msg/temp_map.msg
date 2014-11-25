@@ -1,0 +1,3 @@
+bool use_temp_map
+string map_name
+geometry_msgs/Point temp_origin
