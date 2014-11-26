@@ -21,15 +21,6 @@ else (Yamlcpp_FOUND)
   message(ERROR "Yamlcpp not found.")
 endif (Yamlcpp_FOUND)
 
-set(Stage_DIR $ENV{MY_MODULE_PATH})
-find_package(Stage REQUIRED)
-
-if (Stage_FOUND)
-  message(STATUS "Stage found. Libraries ${Stage_LIBRARIES} in ${Stage_LIBRARY_DIRS}. Header directories are ${Stage_INCLUDE_DIRS}")
-else (Stage_FOUND)
-  message(ERROR "Stage library not found.")
-endif (Stage_FOUND)
-
 # Set the build type.  Options are:
 #  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
 #  Debug          : w/ debug symbols, w/o optimization
@@ -44,9 +35,6 @@ rosbuild_init()
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
-#add_executable( obst_avoid src/player_obst_avoid.cpp )
-#target_link_libraries( obst_avoid fuzzy_oa ${Fuzzylite_LIBRARIES})
 
 #uncomment if you have defined messages
 rosbuild_genmsg()
@@ -71,4 +59,4 @@ rosbuild_add_executable( player_obst_avoid src/player_obst_avoid.cpp )
 target_link_libraries( player_obst_avoid fuzzy_oa )
 
 rosbuild_add_executable( warehouse_marker_finder src/warehouse_marker_finder.cpp )
-target_link_libraries( warehouse_marker_finder ${Stage_LIBRARIES} marker_details )
+target_link_libraries( warehouse_marker_finder marker_details )
