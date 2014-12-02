@@ -82,8 +82,8 @@ int main( int argc, char** argv )
 	}
     }
 
-  ros::Subscriber scan_sub = n.subscribe<sensor_msgs::LaserScan>("/base_scan", 10, laser_to_vfh);
-  vel_pub=n.advertise<geometry_msgs::Twist>("/cmd_vel",10);
+  ros::Subscriber scan_sub = n.subscribe<sensor_msgs::LaserScan>("base_scan", 10, laser_to_vfh);
+  vel_pub=n.advertise<geometry_msgs::Twist>("cmd_vel",10);
   calculated_costmap = (0.40*COSTMAP_OBST_RAD/2)+(0.70*COSTMAP_OBST_RAD);
 
   ros::spin();  

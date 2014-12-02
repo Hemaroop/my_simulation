@@ -3,7 +3,6 @@
 
 #include "warehouse_markers.h"
 #include <geometry_msgs/Point.h>
-
 #define LASER_DEFAULT_RANGE 6.0
 #define BLOBFINDER_DEFAULT_RANGE 5.0
 
