@@ -1,4 +1,4 @@
 ros_stage_simulation
 ====================
 
-Stage simulator with ROS
+Basic obstacle avoidance and blob detection with stage simulator in ROS
